@@ -271,33 +271,6 @@ BN_TO_EN: Dict[str, str] = {
 
 3. Your RAG will be accessible at the generated URL.
 
-### Option 2: Connect Custom Domain
-
-1. Create Cloudflare Tunnel:
-   ```bash
-   cloudflared tunnel create rag-server
-   ```
-
-2. Configure DNS:
-   ```bash
-   cloudflared tunnel route dns rag-server rag.aetherbd.com
-   ```
-
-3. Create config file (`cloudflared.yml`):
-   ```yaml
-   tunnel: <your-tunnel-id>
-   ingress:
-     - hostname: rag.aetherbd.com
-       service: http://localhost:5555
-     - service: http_status:404
-   ```
-
-4. Run:
-   ```bash
-   cloudflared tunnel run rag-server
-   ```
-
----
 
 ## 🖥️ VPS Deployment
 
