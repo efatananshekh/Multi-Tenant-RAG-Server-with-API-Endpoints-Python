@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base | Admin Panel</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Auth Screen -->
+        <div id="authScreen">
+            <div class="card" style="max-width: 420px; margin: 80px auto;">
+                <div class="logo" style="justify-content: center; margin-bottom: 30px;">
+                    <div class="logo-icon">🧠</div>
+                    <div class="logo-text">Knowledge Base</div>
+                </div>
+
+                <h1 style="font-size: 24px; margin-bottom: 8px;">Welcome Back</h1>
+                <p class="text-dim" style="margin-bottom: 30px;">Sign in to manage your knowledge base</p>
+
+                <input type="text" id="tenantId" placeholder="Tenant ID / Company Name">
+                <input type="password" id="password" placeholder="Password" style="margin-top: 12px;">
+
+                <button class="btn btn-full" id="loginBtn">Sign In</button>
+
+                <p class="text-dim text-center mt-20" style="font-size: 13px;">
+                    New tenant? Just sign up!
+                </p>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="hidden">
+            <div class="header">
+                <div class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <div class="logo-text">Knowledge Base</div>
+                </div>
+                <button class="btn btn-danger" id="logoutBtn">Sign Out</button>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="docCount">0</div>
+                    <div class="stat-label">Documents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="queryCount">0</div>
+                    <div class="stat-label">Queries Today</div>
+                </div>
+            </div>
+
+            <!-- Upload -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">📤 Upload Knowledge File</span>
+                </div>
+                <input type="file" id="knowledgeFile" accept=".txt,.md,.csv">
+                <button class="btn" id="uploadBtn">Upload</button>
+                <div class="loading" id="uploadLoading">
+                    <div class="spinner"></div>
+                    Processing...
+                </div>
+            </div>
+
+            <!-- Query -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">🔍 Query Knowledge Base</span>
+                </div>
+                <input type="text" id="queryText" placeholder="Ask a question...">
+                <button class="btn" id="queryBtn">Search</button>
+                <div class="loading" id="queryLoading">
+                    <div class="spinner"></div>
+                    Searching...
+                </div>
+                <div id="queryResults"></div>
+            </div>
+
+            <!-- Credentials -->
+            <div class="credentials">
+                <div class="credential-row">
+                    <span class="credential-label">Tenant ID</span>
+                    <span class="credential-value" id="displayTenantId"></span>
+                </div>
+                <div class="credential-row">
+                    <span class="credential-label">API Key</span>
+                    <span class="credential-value" id="displayApiKey"></span>
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="card danger-zone">
+                <div class="card-header">
+                    <span class="card-title danger-title">⚠️ Danger Zone</span>
+                </div>
+                <button class="btn btn-danger" id="clearBtn">Clear All Knowledge</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
